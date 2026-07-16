@@ -24,7 +24,7 @@ class AppColors {
   static const Color textOnLight = Color(0xFF212121);
 
   // On-color (text/icon color drawn on top of a brand color)
-  static const Color onPrimary = neutral; // dark text on green
+  static const Color onPrimary = white; // light text on green (matches logo)
   static const Color onSecondary = Color(0xFFFFFFFF);
   static const Color onTertiary = neutral;
 

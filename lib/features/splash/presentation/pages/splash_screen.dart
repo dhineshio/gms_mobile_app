@@ -5,9 +5,9 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_images.dart';
 import '../../../../core/router/route_names.dart';
+import '../../../../core/services/local_storage_service.dart';
 
 /// Brand splash shown right after the native splash. Same green background so
 /// the hand-off from the native splash is seamless.
@@ -31,7 +31,13 @@ class _SplashScreenState extends State<SplashScreen> {
     });
     // TODO: replace with auth/session check → login or home.
     _navigationTimer = Timer(const Duration(seconds: 2), () {
-      if (mounted) context.go(RouteNames.onboarding);
+      if (!mounted) return;
+      // Onboarding is shown only on first launch.
+      context.go(
+        LocalStorageService.hasSeenOnboarding
+            ? RouteNames.login
+            : RouteNames.onboarding,
+      );
     });
   }
 

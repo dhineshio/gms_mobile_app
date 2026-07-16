@@ -1,10 +1,12 @@
 {
 	"folders": [
 		{
-			"path": "../gms_backend"
+			"name": "gms_mobile_app",
+			"path": "."
 		},
 		{
-			"path": "."
+			"name": "gms_backend",
+			"path": "../gms_backend"
 		}
 	],
 	"settings": {}

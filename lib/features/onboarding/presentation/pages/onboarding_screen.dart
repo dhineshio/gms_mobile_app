@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_images.dart';
 import '../../../../core/constants/app_strings.dart';
+import '../../../../core/router/route_names.dart';
+import '../../../../core/services/local_storage_service.dart';
 import '../widgets/onboarding_feature_item.dart';
 
 /// Single-page onboarding: logo, headline, three feature highlights and a
@@ -78,8 +81,8 @@ class OnboardingScreen extends StatelessWidget {
             foregroundColor: AppColors.white,
           ),
           onPressed: () {
-            // TODO: navigate to login once the auth feature exists
-            // (context.go(RouteNames.login)).
+            LocalStorageService.setOnboardingSeen();
+            context.go(RouteNames.login);
           },
           child: Row(
             children: [

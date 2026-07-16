@@ -34,7 +34,7 @@ class AppTheme {
     required Color hint,
   }) {
     OutlineInputBorder side(Color color, [double width = 1]) => OutlineInputBorder(
-          borderRadius: BorderRadius.circular(6.sp),
+          borderRadius: BorderRadius.circular(10.sp),
           borderSide: BorderSide(color: color, width: width),
         );
     return InputDecorationTheme(
@@ -106,6 +106,17 @@ class AppTheme {
     );
   }
 
+  /// Green track with a white thumb when active (defaults would use the
+  /// near-black onPrimary for the thumb).
+  static SwitchThemeData _switchTheme() {
+    return SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith(
+        (states) =>
+            states.contains(WidgetState.selected) ? AppColors.white : null,
+      ),
+    );
+  }
+
   /// WhatsApp-style FAB: rounded square in brand green.
   static FloatingActionButtonThemeData _fabTheme() {
     return FloatingActionButtonThemeData(
@@ -147,6 +158,7 @@ class AppTheme {
       unselected: AppColors.textSecondary,
     ),
     floatingActionButtonTheme: _fabTheme(),
+    switchTheme: _switchTheme(),
     listTileTheme: const ListTileThemeData(
       iconColor: AppColors.textSecondary,
       textColor: AppColors.textPrimary,
@@ -195,6 +207,7 @@ class AppTheme {
       unselected: AppColors.textSecondary,
     ),
     floatingActionButtonTheme: _fabTheme(),
+    switchTheme: _switchTheme(),
     listTileTheme: const ListTileThemeData(
       iconColor: AppColors.textSecondary,
       textColor: AppColors.textOnLight,

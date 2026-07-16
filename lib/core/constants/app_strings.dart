@@ -19,4 +19,14 @@ class AppStrings {
   static const String onboardingFeature3Desc =
       'Chat one-on-one or in groups. Share, react & stay close.';
   static const String getStarted = 'Get Started';
+
+  // ===== Login =====
+  static const String login = 'Login';
+  static const String loginSubtitle = 'Welcome back! Sign in to continue.';
+  static const String memberIdLabel = 'Member ID';
+  static const String loginAsAdmin = 'Login as Admin';
+  static const String memberIdHint = 'Enter your 10-character member ID';
+  static const String adminMemberIdHint = 'Enter your member ID';
+  static const String passwordLabel = 'Password';
+  static const String passwordHint = 'Enter your password';
 }

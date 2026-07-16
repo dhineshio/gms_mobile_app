@@ -8,7 +8,8 @@ class AuthInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final token = LocalStorageService.accessToken;
     if (token != null && token.isNotEmpty) {
-      options.headers['userauth'] = token; // header key per your backend
+      // ninja-jwt expects a standard Bearer token.
+      options.headers['Authorization'] = 'Bearer $token';
     }
     handler.next(options);
   }
